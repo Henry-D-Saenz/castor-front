@@ -382,8 +382,16 @@ def get_e14_live_data():
 def get_mesa_detail(mesa_id: str):
     """Detail for a single mesa pulled from the E-14 JSON store."""
     try:
+        mesa_id = str(mesa_id or "").strip()
+        if not mesa_id:
+            return jsonify({"success": False, "error": "Mesa id is required"}), 400
+
         if e14_sql_reader.is_sql_mode():
-            form = e14_sql_reader.get_form_detail(int(mesa_id)) if mesa_id.isdigit() else e14_sql_reader.get_form_by_mesa_id(mesa_id)
+            form = (
+                e14_sql_reader.get_form_detail(int(mesa_id))
+                if mesa_id.isdigit()
+                else e14_sql_reader.get_form_by_identifier(mesa_id)
+            )
             if not form:
                 return jsonify({"success": False, "error": "Mesa not found"}), 404
 
@@ -426,6 +434,18 @@ def get_mesa_detail(mesa_id: str):
         if not form:
             for f in store._forms:
                 if f.get('mesa_id') == mesa_id:
+                    form = f
+                    break
+
+        # Fallback: allow document/extraction identifiers (exact or prefix).
+        if not form:
+            for f in store._forms:
+                extraction_id = str(f.get('extraction_id') or "").strip()
+                document_id = str(f.get('document_id') or "").strip()
+                if mesa_id in (extraction_id, document_id):
+                    form = f
+                    break
+                if extraction_id.startswith(mesa_id) or document_id.startswith(mesa_id):
                     form = f
                     break
 

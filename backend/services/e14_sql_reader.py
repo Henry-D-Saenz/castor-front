@@ -326,6 +326,49 @@ def get_form_by_mesa_id(mesa_id: str) -> Optional[Dict[str, Any]]:
     return out
 
 
+def get_form_by_identifier(identifier: str) -> Optional[Dict[str, Any]]:
+    """Resolve a form by mesa_id/document_id (exact or prefix)."""
+    ident = str(identifier or "").strip()
+    if not ident:
+        return None
+
+    with _connect() as conn:
+        cur = conn.cursor()
+        cur.execute(
+            """
+            SELECT TOP 1 result_json
+            FROM dbo.e14_results_cache
+            WHERE mesa_id = ?
+               OR document_id = ?
+               OR document_id LIKE ?
+            ORDER BY synced_at DESC, document_id ASC
+            """,
+            ident,
+            ident,
+            f"{ident}%",
+        )
+        row = cur.fetchone()
+    if not row:
+        return None
+    try:
+        payload = json.loads(row[0])
+    except Exception:
+        return None
+    form = _normalize_cached_payload(payload, idx=1)
+    if not form:
+        return None
+    out = _summary_from_form(form)
+    out["partidos"] = form.get("partidos", [])
+    out["validation"] = form.get("validation", {})
+    out["sufragantes_e11"] = form.get("_raw_sufragantes_e11")
+    out["votos_no_marcados"] = form.get("_raw_votos_no_marcados")
+    out["votos_en_urna"] = form.get("_raw_votos_en_urna")
+    out["num_firmas"] = form.get("num_firmas")
+    out["warnings"] = form.get("warnings") or []
+    out["raw_text"] = form.get("_raw_text", "")
+    return out
+
+
 def get_stats(
     departamento: Optional[str] = None,
     municipio: Optional[str] = None,
