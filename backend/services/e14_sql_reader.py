@@ -259,11 +259,35 @@ def get_form_detail(form_id: int) -> Optional[Dict[str, Any]]:
             """
             WITH ranked AS (
               SELECT
+                document_id,
+                filename,
+                corporacion,
+                departamento,
+                municipio,
+                zona_cod,
+                puesto_cod,
+                mesa_num,
+                ocr_confidence,
+                total_votos,
+                processed_at,
                 result_json,
                 ROW_NUMBER() OVER (ORDER BY synced_at DESC, document_id ASC) AS rn
               FROM dbo.e14_results_cache
             )
-            SELECT result_json, rn
+            SELECT
+              document_id,
+              filename,
+              corporacion,
+              departamento,
+              municipio,
+              zona_cod,
+              puesto_cod,
+              mesa_num,
+              ocr_confidence,
+              total_votos,
+              processed_at,
+              result_json,
+              rn
             FROM ranked
             WHERE rn = ?
             """,
@@ -273,14 +297,49 @@ def get_form_detail(form_id: int) -> Optional[Dict[str, Any]]:
     if not row:
         return None
     try:
-        payload = json.loads(row[0])
+        payload = json.loads(row[11])
     except Exception:
-        return None
+        return {
+            "id": form_id,
+            "document_id": row[0],
+            "filename": row[1],
+            "corporacion": row[2],
+            "departamento": row[3],
+            "municipio": row[4],
+            "zona_cod": row[5],
+            "puesto_cod": row[6],
+            "mesa_num": row[7],
+            "ocr_confidence": float(row[8] or 0),
+            "total_votos": int(row[9] or 0),
+            "processed_at": row[10],
+            "partidos": [],
+            "validation": {},
+            "warnings": [],
+            "raw_text": "",
+        }
     form = _normalize_cached_payload(payload, idx=form_id)
     if not form:
-        return None
+        return {
+            "id": form_id,
+            "document_id": row[0],
+            "filename": row[1],
+            "corporacion": row[2],
+            "departamento": row[3],
+            "municipio": row[4],
+            "zona_cod": row[5],
+            "puesto_cod": row[6],
+            "mesa_num": row[7],
+            "ocr_confidence": float(row[8] or 0),
+            "total_votos": int(row[9] or 0),
+            "processed_at": row[10],
+            "partidos": [],
+            "validation": {},
+            "warnings": [],
+            "raw_text": "",
+        }
 
     out = _summary_from_form(form)
+    out["document_id"] = row[0]
     out["partidos"] = form.get("partidos", [])
     out["validation"] = form.get("validation", {})
     out["sufragantes_e11"] = form.get("_raw_sufragantes_e11")
@@ -297,7 +356,7 @@ def get_form_by_mesa_id(mesa_id: str) -> Optional[Dict[str, Any]]:
         cur = conn.cursor()
         cur.execute(
             """
-            SELECT TOP 1 result_json
+            SELECT TOP 1 document_id, result_json
             FROM dbo.e14_results_cache
             WHERE mesa_id = ?
             ORDER BY synced_at DESC, document_id ASC
@@ -308,13 +367,14 @@ def get_form_by_mesa_id(mesa_id: str) -> Optional[Dict[str, Any]]:
     if not row:
         return None
     try:
-        payload = json.loads(row[0])
+        payload = json.loads(row[1])
     except Exception:
         return None
     form = _normalize_cached_payload(payload, idx=1)
     if not form:
         return None
     out = _summary_from_form(form)
+    out["document_id"] = row[0]
     out["partidos"] = form.get("partidos", [])
     out["validation"] = form.get("validation", {})
     out["sufragantes_e11"] = form.get("_raw_sufragantes_e11")

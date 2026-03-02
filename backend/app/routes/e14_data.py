@@ -791,8 +791,11 @@ p {{ font-size: 0.85rem; color: #777; }}
 @e14_data_bp.route('/pdf/<int:form_id>', methods=['GET'])
 def get_form_pdf(form_id: int):
     """Serve the original E-14 PDF file for a given form."""
-    store = get_e14_json_store()
-    form = store.get_form_detail(form_id)
+    if e14_sql_reader.is_sql_mode():
+        form = e14_sql_reader.get_form_detail(form_id)
+    else:
+        store = get_e14_json_store()
+        form = store.get_form_detail(form_id)
     if not form:
         return _pdf_not_found_html('Formulario no encontrado en el sistema.'), 404, {'Content-Type': 'text/html'}
 
@@ -800,7 +803,11 @@ def get_form_pdf(form_id: int):
     if not filename:
         return _pdf_not_found_html('Este formulario no tiene PDF asociado.'), 404, {'Content-Type': 'text/html'}
 
-    doc_id = str(form.get('extraction_id') or '').strip() or _extract_doc_id_from_filename(filename)
+    doc_id = (
+        str(form.get('document_id') or '').strip()
+        or str(form.get('extraction_id') or '').strip()
+        or _extract_doc_id_from_filename(filename)
+    )
     blob_response = _stream_pdf_from_blob(doc_id, filename_hint=filename)
     if blob_response is not None:
         return blob_response

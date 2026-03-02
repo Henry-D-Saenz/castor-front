@@ -88,6 +88,9 @@ def _html_to_pdf_fallback(html_string: str) -> Optional[bytes]:
 
 def _extract_doc_id(form: dict) -> str:
     """Resolve document_id from extraction_id or UUID filename stem."""
+    doc_id = str(form.get('document_id') or '').strip()
+    if doc_id:
+        return doc_id
     doc_id = str(form.get('extraction_id') or '').strip()
     if doc_id:
         return doc_id
@@ -635,22 +638,27 @@ def send_impugnacion():
     e14_pdf_name = None
     e14_pdf_bytes = None
     try:
-        store = _get_store()
-        store._ensure_loaded()
         form = None
 
-        # Deterministic selection: when frontend provides form_id, use it first.
-        if form_id_raw is not None and str(form_id_raw).strip().isdigit():
-            form = store._forms_by_id.get(int(str(form_id_raw).strip()))
+        if e14_sql_reader.is_sql_mode():
+            if form_id_raw is not None and str(form_id_raw).strip().isdigit():
+                form = e14_sql_reader.get_form_detail(int(str(form_id_raw).strip()))
+            if not form and mesa_id:
+                form = e14_sql_reader.get_form_by_identifier(str(mesa_id))
+        else:
+            store = _get_store()
+            store._ensure_loaded()
+            if form_id_raw is not None and str(form_id_raw).strip().isdigit():
+                form = store._forms_by_id.get(int(str(form_id_raw).strip()))
 
-        if not form and str(mesa_id).isdigit():
-            form = store._forms_by_id.get(int(str(mesa_id)))
+            if not form and str(mesa_id).isdigit():
+                form = store._forms_by_id.get(int(str(mesa_id)))
 
-        if not form:
-            for f in store._forms:
-                if f.get('mesa_id') == mesa_id:
-                    form = f
-                    break
+            if not form:
+                for f in store._forms:
+                    if f.get('mesa_id') == mesa_id:
+                        form = f
+                        break
         if form:
             e14_pdf_name, e14_pdf_bytes, e14_source = _load_e14_pdf_bytes(form)
             if e14_pdf_bytes:
