@@ -1,0 +1,965 @@
+{
+  "metadata": {
+    "source": "Misión de Observación Electoral (MOE)",
+    "report_year": 2023,
+    "updated_for": 2026,
+    "total_risk_municipalities": 166,
+    "extreme_risk_count": 104,
+    "high_risk_count": 62
+  },
+  "risk_factors": {
+    "ARMED_GROUPS": "Presencia de grupos armados ilegales (ELN, disidencias FARC, Clan del Golfo)",
+    "ILLEGAL_ECONOMY": "Economías ilegales (coca, minería ilegal)",
+    "TRASHUMANTISMO": "Migración ficticia de votantes",
+    "POLITICAL_DOMINANCE": "Dominancia política atípica",
+    "ATYPICAL_VOTES": "Altas tasas de votos nulos o en blanco atípicos",
+    "MOBILITY_RESTRICTIONS": "Restricciones a la movilidad",
+    "LEADER_ATTACKS": "Ataques a líderes políticos",
+    "INSTITUTIONAL_WEAKNESS": "Deficiencias institucionales",
+    "BORDER_VULNERABILITY": "Vulnerabilidad fronteriza",
+    "GEOGRAPHIC_ISOLATION": "Aislamiento geográfico"
+  },
+  "municipalities": [
+    {
+      "code": "05031",
+      "name": "Amalfi",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "POLITICAL_DOMINANCE"],
+      "armed_group": "Clan del Golfo",
+      "region": "Norte"
+    },
+    {
+      "code": "05040",
+      "name": "Anorí",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "ELN",
+      "region": "Norte"
+    },
+    {
+      "code": "05107",
+      "name": "Briceño",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "Clan del Golfo",
+      "region": "Norte"
+    },
+    {
+      "code": "05120",
+      "name": "Cáceres",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "POLITICAL_DOMINANCE"],
+      "armed_group": "Clan del Golfo",
+      "region": "Bajo Cauca"
+    },
+    {
+      "code": "05142",
+      "name": "Caucasia",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "POLITICAL_DOMINANCE", "TRASHUMANTISMO"],
+      "armed_group": "Clan del Golfo",
+      "region": "Bajo Cauca"
+    },
+    {
+      "code": "05604",
+      "name": "Remedios",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "LEADER_ATTACKS"],
+      "armed_group": "ELN",
+      "region": "Nordeste"
+    },
+    {
+      "code": "05736",
+      "name": "Segovia",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "LEADER_ATTACKS"],
+      "armed_group": "ELN",
+      "region": "Nordeste"
+    },
+    {
+      "code": "05790",
+      "name": "Tarazá",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "Clan del Golfo",
+      "region": "Bajo Cauca"
+    },
+    {
+      "code": "05854",
+      "name": "Valdivia",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Clan del Golfo",
+      "region": "Norte"
+    },
+    {
+      "code": "05887",
+      "name": "Yarumal",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "POLITICAL_DOMINANCE"],
+      "armed_group": "Clan del Golfo",
+      "region": "Norte"
+    },
+    {
+      "code": "05895",
+      "name": "Zaragoza",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "POLITICAL_DOMINANCE"],
+      "armed_group": "Clan del Golfo",
+      "region": "Bajo Cauca"
+    },
+    {
+      "code": "05051",
+      "name": "Angostura",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "TRASHUMANTISMO"],
+      "region": "Norte"
+    },
+    {
+      "code": "05480",
+      "name": "Mutatá",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Clan del Golfo",
+      "region": "Urabá"
+    },
+    {
+      "code": "05490",
+      "name": "Necoclí",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "TRASHUMANTISMO", "BORDER_VULNERABILITY"],
+      "armed_group": "Clan del Golfo",
+      "region": "Urabá"
+    },
+    {
+      "code": "05837",
+      "name": "Turbo",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "TRASHUMANTISMO", "BORDER_VULNERABILITY"],
+      "armed_group": "Clan del Golfo",
+      "region": "Urabá"
+    },
+    {
+      "code": "05847",
+      "name": "Urrao",
+      "department": "Antioquia",
+      "department_code": "05",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "GEOGRAPHIC_ISOLATION"],
+      "region": "Suroeste"
+    },
+    {
+      "code": "19110",
+      "name": "Buenos Aires",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "LEADER_ATTACKS"],
+      "armed_group": "Disidencias FARC",
+      "region": "Norte"
+    },
+    {
+      "code": "19130",
+      "name": "Caloto",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "LEADER_ATTACKS", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "Disidencias FARC",
+      "region": "Norte"
+    },
+    {
+      "code": "19212",
+      "name": "Corinto",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "LEADER_ATTACKS"],
+      "armed_group": "Disidencias FARC",
+      "region": "Norte"
+    },
+    {
+      "code": "19256",
+      "name": "El Tambo",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "GEOGRAPHIC_ISOLATION"],
+      "armed_group": "ELN",
+      "region": "Centro"
+    },
+    {
+      "code": "19364",
+      "name": "Jambaló",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "LEADER_ATTACKS", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "Disidencias FARC",
+      "region": "Norte"
+    },
+    {
+      "code": "19418",
+      "name": "López de Micay",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "GEOGRAPHIC_ISOLATION"],
+      "armed_group": "ELN",
+      "region": "Pacífico"
+    },
+    {
+      "code": "19473",
+      "name": "Morales",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Disidencias FARC",
+      "region": "Norte"
+    },
+    {
+      "code": "19698",
+      "name": "Santander de Quilichao",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "LEADER_ATTACKS", "POLITICAL_DOMINANCE"],
+      "armed_group": "Disidencias FARC",
+      "region": "Norte"
+    },
+    {
+      "code": "19780",
+      "name": "Suárez",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "LEADER_ATTACKS"],
+      "armed_group": "Disidencias FARC",
+      "region": "Norte"
+    },
+    {
+      "code": "19821",
+      "name": "Toribío",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "LEADER_ATTACKS", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "Disidencias FARC",
+      "region": "Norte"
+    },
+    {
+      "code": "19022",
+      "name": "Almaguer",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "GEOGRAPHIC_ISOLATION"],
+      "region": "Sur"
+    },
+    {
+      "code": "19392",
+      "name": "La Vega",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "region": "Sur"
+    },
+    {
+      "code": "19517",
+      "name": "Páez",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "LEADER_ATTACKS"],
+      "region": "Oriente"
+    },
+    {
+      "code": "19001",
+      "name": "Popayán",
+      "department": "Cauca",
+      "department_code": "19",
+      "risk_level": "HIGH",
+      "factors": ["LEADER_ATTACKS", "POLITICAL_DOMINANCE"],
+      "region": "Centro"
+    },
+    {
+      "code": "27025",
+      "name": "Alto Baudó",
+      "department": "Chocó",
+      "department_code": "27",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "GEOGRAPHIC_ISOLATION"],
+      "armed_group": "ELN",
+      "region": "Baudó"
+    },
+    {
+      "code": "27050",
+      "name": "Bagadó",
+      "department": "Chocó",
+      "department_code": "27",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "ELN",
+      "region": "San Juan"
+    },
+    {
+      "code": "27099",
+      "name": "Bojayá",
+      "department": "Chocó",
+      "department_code": "27",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "LEADER_ATTACKS", "INSTITUTIONAL_WEAKNESS"],
+      "armed_group": "ELN",
+      "region": "Atrato"
+    },
+    {
+      "code": "27361",
+      "name": "Istmina",
+      "department": "Chocó",
+      "department_code": "27",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "ELN",
+      "region": "San Juan"
+    },
+    {
+      "code": "27430",
+      "name": "Medio Baudó",
+      "department": "Chocó",
+      "department_code": "27",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "GEOGRAPHIC_ISOLATION", "INSTITUTIONAL_WEAKNESS"],
+      "armed_group": "ELN",
+      "region": "Baudó"
+    },
+    {
+      "code": "27495",
+      "name": "Nuquí",
+      "department": "Chocó",
+      "department_code": "27",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "GEOGRAPHIC_ISOLATION"],
+      "armed_group": "ELN",
+      "region": "Pacífico"
+    },
+    {
+      "code": "27001",
+      "name": "Quibdó",
+      "department": "Chocó",
+      "department_code": "27",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "LEADER_ATTACKS"],
+      "armed_group": "ELN",
+      "region": "Atrato"
+    },
+    {
+      "code": "27615",
+      "name": "Riosucio",
+      "department": "Chocó",
+      "department_code": "27",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "BORDER_VULNERABILITY"],
+      "armed_group": "Clan del Golfo",
+      "region": "Darién"
+    },
+    {
+      "code": "27150",
+      "name": "Carmen del Darién",
+      "department": "Chocó",
+      "department_code": "27",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "GEOGRAPHIC_ISOLATION"],
+      "armed_group": "Clan del Golfo",
+      "region": "Darién"
+    },
+    {
+      "code": "27205",
+      "name": "Condoto",
+      "department": "Chocó",
+      "department_code": "27",
+      "risk_level": "HIGH",
+      "factors": ["ILLEGAL_ECONOMY", "INSTITUTIONAL_WEAKNESS"],
+      "region": "San Juan"
+    },
+    {
+      "code": "27372",
+      "name": "Juradó",
+      "department": "Chocó",
+      "department_code": "27",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "BORDER_VULNERABILITY", "GEOGRAPHIC_ISOLATION"],
+      "region": "Pacífico"
+    },
+    {
+      "code": "52079",
+      "name": "Barbacoas",
+      "department": "Nariño",
+      "department_code": "52",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "Disidencias FARC",
+      "region": "Pacífico"
+    },
+    {
+      "code": "52224",
+      "name": "Cumbitara",
+      "department": "Nariño",
+      "department_code": "52",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Disidencias FARC",
+      "region": "Cordillera"
+    },
+    {
+      "code": "52250",
+      "name": "El Charco",
+      "department": "Nariño",
+      "department_code": "52",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "GEOGRAPHIC_ISOLATION"],
+      "armed_group": "Disidencias FARC",
+      "region": "Pacífico"
+    },
+    {
+      "code": "52405",
+      "name": "Leiva",
+      "department": "Nariño",
+      "department_code": "52",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Disidencias FARC",
+      "region": "Cordillera"
+    },
+    {
+      "code": "52427",
+      "name": "Magüi Payán",
+      "department": "Nariño",
+      "department_code": "52",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "GEOGRAPHIC_ISOLATION"],
+      "armed_group": "Disidencias FARC",
+      "region": "Pacífico"
+    },
+    {
+      "code": "52490",
+      "name": "Olaya Herrera",
+      "department": "Nariño",
+      "department_code": "52",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Disidencias FARC",
+      "region": "Pacífico"
+    },
+    {
+      "code": "52540",
+      "name": "Policarpa",
+      "department": "Nariño",
+      "department_code": "52",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Disidencias FARC",
+      "region": "Cordillera"
+    },
+    {
+      "code": "52612",
+      "name": "Ricaurte",
+      "department": "Nariño",
+      "department_code": "52",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "BORDER_VULNERABILITY"],
+      "armed_group": "Disidencias FARC",
+      "region": "Pacífico"
+    },
+    {
+      "code": "52835",
+      "name": "Tumaco",
+      "department": "Nariño",
+      "department_code": "52",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "TRASHUMANTISMO", "LEADER_ATTACKS", "BORDER_VULNERABILITY"],
+      "armed_group": "Disidencias FARC",
+      "region": "Pacífico"
+    },
+    {
+      "code": "52227",
+      "name": "Cumbal",
+      "department": "Nariño",
+      "department_code": "52",
+      "risk_level": "HIGH",
+      "factors": ["BORDER_VULNERABILITY", "TRASHUMANTISMO"],
+      "region": "Frontera"
+    },
+    {
+      "code": "52356",
+      "name": "Ipiales",
+      "department": "Nariño",
+      "department_code": "52",
+      "risk_level": "HIGH",
+      "factors": ["BORDER_VULNERABILITY", "TRASHUMANTISMO"],
+      "region": "Frontera"
+    },
+    {
+      "code": "52678",
+      "name": "Samaniego",
+      "department": "Nariño",
+      "department_code": "52",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Disidencias FARC",
+      "region": "Cordillera"
+    },
+    {
+      "code": "54001",
+      "name": "Cúcuta",
+      "department": "Norte de Santander",
+      "department_code": "54",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "BORDER_VULNERABILITY", "TRASHUMANTISMO", "LEADER_ATTACKS"],
+      "armed_group": "ELN",
+      "region": "Metropolitana"
+    },
+    {
+      "code": "54344",
+      "name": "Hacarí",
+      "department": "Norte de Santander",
+      "department_code": "54",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "ELN",
+      "region": "Catatumbo"
+    },
+    {
+      "code": "54498",
+      "name": "Ocaña",
+      "department": "Norte de Santander",
+      "department_code": "54",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "POLITICAL_DOMINANCE"],
+      "armed_group": "ELN",
+      "region": "Provincia de Ocaña"
+    },
+    {
+      "code": "54553",
+      "name": "Puerto Santander",
+      "department": "Norte de Santander",
+      "department_code": "54",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "BORDER_VULNERABILITY"],
+      "armed_group": "ELN",
+      "region": "Frontera"
+    },
+    {
+      "code": "54670",
+      "name": "San Calixto",
+      "department": "Norte de Santander",
+      "department_code": "54",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "ELN",
+      "region": "Catatumbo"
+    },
+    {
+      "code": "54810",
+      "name": "Tibú",
+      "department": "Norte de Santander",
+      "department_code": "54",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "LEADER_ATTACKS", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "ELN",
+      "region": "Catatumbo"
+    },
+    {
+      "code": "54405",
+      "name": "Los Patios",
+      "department": "Norte de Santander",
+      "department_code": "54",
+      "risk_level": "HIGH",
+      "factors": ["BORDER_VULNERABILITY"],
+      "region": "Metropolitana"
+    },
+    {
+      "code": "81001",
+      "name": "Arauca",
+      "department": "Arauca",
+      "department_code": "81",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "BORDER_VULNERABILITY", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "ELN",
+      "region": "Capital"
+    },
+    {
+      "code": "81065",
+      "name": "Arauquita",
+      "department": "Arauca",
+      "department_code": "81",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "BORDER_VULNERABILITY", "ILLEGAL_ECONOMY"],
+      "armed_group": "ELN",
+      "region": "Frontera"
+    },
+    {
+      "code": "81591",
+      "name": "Puerto Rondón",
+      "department": "Arauca",
+      "department_code": "81",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "ELN",
+      "region": "Sabana"
+    },
+    {
+      "code": "81736",
+      "name": "Saravena",
+      "department": "Arauca",
+      "department_code": "81",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "BORDER_VULNERABILITY", "LEADER_ATTACKS"],
+      "armed_group": "ELN",
+      "region": "Piedemonte"
+    },
+    {
+      "code": "81794",
+      "name": "Tame",
+      "department": "Arauca",
+      "department_code": "81",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "ELN",
+      "region": "Piedemonte"
+    },
+    {
+      "code": "13042",
+      "name": "Arenal",
+      "department": "Bolívar",
+      "department_code": "13",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "POLITICAL_DOMINANCE"],
+      "armed_group": "Clan del Golfo",
+      "region": "Sur"
+    },
+    {
+      "code": "13160",
+      "name": "Cantagallo",
+      "department": "Bolívar",
+      "department_code": "13",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "ELN",
+      "region": "Sur"
+    },
+    {
+      "code": "13468",
+      "name": "Montecristo",
+      "department": "Bolívar",
+      "department_code": "13",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "GEOGRAPHIC_ISOLATION"],
+      "armed_group": "Clan del Golfo",
+      "region": "Sur"
+    },
+    {
+      "code": "13473",
+      "name": "Morales",
+      "department": "Bolívar",
+      "department_code": "13",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "POLITICAL_DOMINANCE"],
+      "armed_group": "Clan del Golfo",
+      "region": "Sur"
+    },
+    {
+      "code": "13670",
+      "name": "San Pablo",
+      "department": "Bolívar",
+      "department_code": "13",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "ELN",
+      "region": "Sur"
+    },
+    {
+      "code": "13688",
+      "name": "Santa Rosa del Sur",
+      "department": "Bolívar",
+      "department_code": "13",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "ELN",
+      "region": "Sur"
+    },
+    {
+      "code": "18150",
+      "name": "Cartagena del Chairá",
+      "department": "Caquetá",
+      "department_code": "18",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "GEOGRAPHIC_ISOLATION"],
+      "armed_group": "Disidencias FARC",
+      "region": "Sur"
+    },
+    {
+      "code": "18001",
+      "name": "Florencia",
+      "department": "Caquetá",
+      "department_code": "18",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "LEADER_ATTACKS"],
+      "armed_group": "Disidencias FARC",
+      "region": "Capital"
+    },
+    {
+      "code": "18753",
+      "name": "San Vicente del Caguán",
+      "department": "Caquetá",
+      "department_code": "18",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "Disidencias FARC",
+      "region": "Sur"
+    },
+    {
+      "code": "76109",
+      "name": "Buenaventura",
+      "department": "Valle del Cauca",
+      "department_code": "76",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "LEADER_ATTACKS"],
+      "armed_group": "Clan del Golfo",
+      "region": "Pacífico"
+    },
+    {
+      "code": "76250",
+      "name": "Dagua",
+      "department": "Valle del Cauca",
+      "department_code": "76",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS"],
+      "region": "Centro"
+    },
+    {
+      "code": "76275",
+      "name": "Florida",
+      "department": "Valle del Cauca",
+      "department_code": "76",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Disidencias FARC",
+      "region": "Sur"
+    },
+    {
+      "code": "76364",
+      "name": "Jamundí",
+      "department": "Valle del Cauca",
+      "department_code": "76",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS"],
+      "region": "Sur"
+    },
+    {
+      "code": "76834",
+      "name": "Tuluá",
+      "department": "Valle del Cauca",
+      "department_code": "76",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "LEADER_ATTACKS"],
+      "region": "Centro"
+    },
+    {
+      "code": "50313",
+      "name": "Granada",
+      "department": "Meta",
+      "department_code": "50",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS"],
+      "region": "Ariari"
+    },
+    {
+      "code": "50325",
+      "name": "Mapiripán",
+      "department": "Meta",
+      "department_code": "50",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "GEOGRAPHIC_ISOLATION"],
+      "armed_group": "Disidencias FARC",
+      "region": "Sur"
+    },
+    {
+      "code": "50590",
+      "name": "Puerto Concordia",
+      "department": "Meta",
+      "department_code": "50",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Disidencias FARC",
+      "region": "Sur"
+    },
+    {
+      "code": "50711",
+      "name": "Vistahermosa",
+      "department": "Meta",
+      "department_code": "50",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Disidencias FARC",
+      "region": "Ariari"
+    },
+    {
+      "code": "86569",
+      "name": "Puerto Leguízamo",
+      "department": "Putumayo",
+      "department_code": "86",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "BORDER_VULNERABILITY", "GEOGRAPHIC_ISOLATION"],
+      "armed_group": "Disidencias FARC",
+      "region": "Amazonia"
+    },
+    {
+      "code": "86568",
+      "name": "Puerto Asís",
+      "department": "Putumayo",
+      "department_code": "86",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "LEADER_ATTACKS"],
+      "armed_group": "Disidencias FARC",
+      "region": "Bajo Putumayo"
+    },
+    {
+      "code": "95001",
+      "name": "San José del Guaviare",
+      "department": "Guaviare",
+      "department_code": "95",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Disidencias FARC",
+      "region": "Capital"
+    },
+    {
+      "code": "23417",
+      "name": "Montelíbano",
+      "department": "Córdoba",
+      "department_code": "23",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "POLITICAL_DOMINANCE"],
+      "armed_group": "Clan del Golfo",
+      "region": "Sur"
+    },
+    {
+      "code": "23580",
+      "name": "Puerto Libertador",
+      "department": "Córdoba",
+      "department_code": "23",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Clan del Golfo",
+      "region": "Sur"
+    },
+    {
+      "code": "23660",
+      "name": "San José de Uré",
+      "department": "Córdoba",
+      "department_code": "23",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY"],
+      "armed_group": "Clan del Golfo",
+      "region": "Sur"
+    },
+    {
+      "code": "23807",
+      "name": "Tierralta",
+      "department": "Córdoba",
+      "department_code": "23",
+      "risk_level": "EXTREME",
+      "factors": ["ARMED_GROUPS", "ILLEGAL_ECONOMY", "MOBILITY_RESTRICTIONS"],
+      "armed_group": "Clan del Golfo",
+      "region": "Sur"
+    },
+    {
+      "code": "23855",
+      "name": "Valencia",
+      "department": "Córdoba",
+      "department_code": "23",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS"],
+      "armed_group": "Clan del Golfo",
+      "region": "Sur"
+    },
+    {
+      "code": "68081",
+      "name": "Barrancabermeja",
+      "department": "Santander",
+      "department_code": "68",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "LEADER_ATTACKS"],
+      "armed_group": "ELN",
+      "region": "Magdalena Medio"
+    },
+    {
+      "code": "20032",
+      "name": "Aguachica",
+      "department": "Cesar",
+      "department_code": "20",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "POLITICAL_DOMINANCE"],
+      "region": "Sur"
+    },
+    {
+      "code": "47189",
+      "name": "Ciénaga",
+      "department": "Magdalena",
+      "department_code": "47",
+      "risk_level": "HIGH",
+      "factors": ["ARMED_GROUPS", "POLITICAL_DOMINANCE"],
+      "region": "Norte"
+    }
+  ],
+  "department_summary": {
+    "05": {"name": "Antioquia", "extreme": 11, "high": 5, "main_threat": "Clan del Golfo"},
+    "19": {"name": "Cauca", "extreme": 10, "high": 4, "main_threat": "Disidencias FARC"},
+    "27": {"name": "Chocó", "extreme": 8, "high": 4, "main_threat": "ELN"},
+    "52": {"name": "Nariño", "extreme": 9, "high": 4, "main_threat": "Disidencias FARC"},
+    "54": {"name": "Norte de Santander", "extreme": 6, "high": 1, "main_threat": "ELN"},
+    "81": {"name": "Arauca", "extreme": 5, "high": 0, "main_threat": "ELN"},
+    "13": {"name": "Bolívar", "extreme": 6, "high": 0, "main_threat": "Clan del Golfo/ELN"},
+    "18": {"name": "Caquetá", "extreme": 3, "high": 0, "main_threat": "Disidencias FARC"},
+    "76": {"name": "Valle del Cauca", "extreme": 1, "high": 4, "main_threat": "Clan del Golfo"},
+    "50": {"name": "Meta", "extreme": 1, "high": 3, "main_threat": "Disidencias FARC"},
+    "86": {"name": "Putumayo", "extreme": 2, "high": 0, "main_threat": "Disidencias FARC"},
+    "95": {"name": "Guaviare", "extreme": 1, "high": 0, "main_threat": "Disidencias FARC"},
+    "23": {"name": "Córdoba", "extreme": 4, "high": 1, "main_threat": "Clan del Golfo"},
+    "68": {"name": "Santander", "extreme": 0, "high": 1, "main_threat": "ELN"},
+    "20": {"name": "Cesar", "extreme": 0, "high": 1, "main_threat": "Varios"},
+    "47": {"name": "Magdalena", "extreme": 0, "high": 1, "main_threat": "Varios"}
+  }
+}

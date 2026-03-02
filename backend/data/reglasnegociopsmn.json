@@ -1,0 +1,98 @@
+{
+  "proyecto": "PMSN - Monitoreo y Alertas Electorales",
+  "fecha_referencia": "2026 (aprox. elecciones o similar)",
+
+  "reglas_negocio": [
+    {
+      "id": 1,
+      "regla": "Diferencia ≥ 10% entre Cámara y Senado (misma mesa)",
+      "condicion": "Solo cuando Cámara > Senado",
+      "riesgo_asociado": "R1"
+    },
+    {
+      "id": 2,
+      "regla": "Tachones y/o enmendaduras en PMSN",
+      "partidos_afectados": ["Centro Democrático", "Pacto Histórico"],
+      "riesgo_asociado": "R2_cd_ph"
+    },
+    {
+      "id": 3,
+      "regla": "Diferencias aritméticas entre los votos reportados en el E-14",
+      "riesgo_asociado": "R3"
+    },
+    {
+      "id": 4,
+      "regla": "Diferencias aritméticas entre E-11 y sumatoria de votos del E-14",
+      "riesgo_asociado": "R4"
+    },
+    {
+      "id": 5,
+      "regla": "Mesas con 0 o 1 voto al Senado",
+      "contexto": "Solo en municipios 'paretos'",
+      "riesgo_asociado": "R5"
+    },
+    {
+      "id": 6,
+      "regla": "Formulario E-14 con menos de 3 firmas",
+      "riesgo_asociado": "R6"
+    },
+    {
+      "id": 7,
+      "regla": "Votos nulos ≥ 6% del total de votos válidos",
+      "riesgo_asociado": "R7"
+    }
+  ],
+
+  "clasificacion_riesgos": {
+    "R1": "Riesgo Alto (Rojo)",
+    "R2_pmsn": "Riesgo Alto (Rojo) - PMSN general",
+    "R2_cd_ph": "Riesgo Medio (Naranja) - Centro Democrático y Pacto Histórico",
+    "R3": "Riesgo Alto (Rojo)",
+    "R4": "Riesgo Alto (Rojo)",
+    "R5": "Riesgo Medio (Naranja)",
+    "R6": "Riesgo Alto (Rojo)",
+    "R7": "Riesgo Bajo (Amarillo)"
+  },
+
+  "criterios_visibilidad_y_priorizacion": {
+    "distribuciones_basicas": [
+      "Distribución de votos del umbral por mesa",
+      "Distribución de votos nulos, blancos y por partido"
+    ],
+    "listados_especiales": [
+      "Listado de mesas 'buenas' según porcentaje de cumplimiento de reglas",
+      "Listado de mesas 'malas' según porcentaje de incumplimiento / riesgo"
+    ],
+    "umbral_activacion_mesas_a_defender": {
+      "condicion": "Votos totales PMSN ≥ 630.000",
+      "definicion_buenas_mesas": {
+        "capitales_pareto": "≥ 8% de umbral",
+        "no_capitales_pareto": "≥ 2.5% de umbral",
+        "mala_mesa": "< 1% (capital o no capital)"
+      },
+      "funcionalidades_al_activarse": [
+        {
+          "nombre": "Mejores mesas",
+          "descripcion": "Top 1.000 mesas ordenadas por votos (descendente)"
+        },
+        {
+          "nombre": "Mesas con riesgo",
+          "descripcion": "Indicar cuáles de las mesas tienen alertas según reglas de negocio"
+        },
+        {
+          "nombre": "Detalle por mesa",
+          "descripcion": "Orden ascendente por número de voto + bandera de riesgo (sí/no + tipo)"
+        }
+      ]
+    },
+    "notas_adicionales": "Las mesas 'buenas' y 'malas' deben mostrar las mismas funcionalidades que las mesas 'a defender' (top, riesgos, detalle)"
+  },
+
+  "pendientes_desarrollo": [
+    "Crear template estandarizado para impugnaciones",
+    "Generar / firmar dos (2) contratos distintos una vez entregado el arreglo principal",
+    "Sincronizar el dashboard final con Carolina (acceso, datos, filtros, etc.)",
+    "Realizar sesión de revisión y mejora continua del dashboard",
+    "Construir / integrar base de datos oficial de municipios 'paretos' para aplicar reglas #5"
+  ]
+}

@@ -1,0 +1,120 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+env/
+ENV/
+
+# Environment variables - SECURITY CRITICAL
+.env
+.env.*
+!.env.example
+.env.local
+.env.*.local
+*.env
+secrets/
+credentials/
+*.pem
+*.key
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+static/.DS_Store
+Thumbs.db
+
+# Model files (large)
+*.bin
+*.pt
+*.pth
+models/
+
+# Frontend (when added)
+node_modules/
+.next/
+out/
+dist/
+
+# Database
+*.db
+*.sqlite
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.deprecated.bak
+
+# Backup files
+*.backup
+*.old
+*.pdf
+
+# E-14 Data (centralized in data/e14/)
+data/e14/
+output_e14/
+e14_congreso_2022/
+pdfs_congreso_2022/
+actas_e14_masivo/pdfs*/
+e14_pdfs/
+data/e14_congreso_2022/
+
+# OCR Output (legacy paths)
+output/
+backend/output/
+**/tesseract_results/
+**/batch_ocr_results/
+
+# Temporary extraction files
+backend/e14_extraction_*.json
+backend/test_e14_*.py
+test_*.py
+!backend/tests/test_*.py
+
+# Training data (large)
+backend/training_data/
+
+# CTO baseline
+.cto_baseline
+
+# Tokens electorales (sensibles)
+progreso_tokens.json
+tokens_mesas_congreso.json
+actas_e14_masivo/*.json
+e14_scraper/*.json
+backend/data/e14/

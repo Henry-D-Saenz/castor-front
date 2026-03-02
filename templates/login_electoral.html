@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control Electoral — CASTOR Elecciones</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ========== MANUAL DE MARCA CASTOR ==========
+     * El software no es un póster. Es una herramienta.
+     * Los colores deben: No cansar, No distraer, Guiar sin gritar.
+     * 80% neutros · 15% estructura · 5% acción y estados
+     */
+    :root {
+      --black:          #111111;
+      --white:          #FFFFFF;
+      --bg:             #FFFFFF;
+      --bg-alt:         #F7F4EE;
+      --sand:           #E6E1D8;
+      --panel:          #FFFFFF;
+      --border:         #E6E1D8;
+
+      --text:           #111111;
+      --text-secondary: #444444;
+      --text-tertiary:  #777777;
+      --muted:          #777777;
+
+      --accent:         #6F6A63;
+      --accent-hover:   #5E5A54;
+      --accent-active:  #4E4A45;
+      --accent-light:   rgba(111, 106, 99, 0.1);
+
+      --danger:         #8F4A4A;
+      --danger-light:   rgba(143, 74, 74, 0.08);
+      --danger-border:  rgba(143, 74, 74, 0.25);
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Source Sans 3', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-alt);
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 420px;
+      padding: 20px;
+    }
+
+    /* Card */
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 36px 36px;
+    }
+
+    /* Status badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-light);
+      border: 1px solid rgba(111, 106, 99, 0.2);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .badge-dot {
+      width: 5px; height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* Logo */
+    .logo {
+      margin-bottom: 28px;
+    }
+    .logo img {
+      height: 72px;
+      width: auto;
+      display: block;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 28px;
+    }
+
+    /* Heading */
+    h1 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+      line-height: 1.55;
+      margin-bottom: 28px;
+    }
+
+    /* Error */
+    .error-msg {
+      background: var(--danger-light);
+      border: 1px solid var(--danger-border);
+      border-radius: 10px;
+      padding: 11px 14px;
+      color: var(--danger);
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    /* Form */
+    label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .input-wrap {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      background: var(--bg-alt);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 1.05rem;
+      letter-spacing: 0.18em;
+      color: var(--text);
+      font-family: 'Courier New', monospace;
+      font-weight: 600;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      text-transform: uppercase;
+    }
+    input[type="text"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-light);
+      background: var(--white);
+    }
+    input[type="text"]::placeholder {
+      color: var(--sand);
+      letter-spacing: 0.12em;
+      font-weight: 400;
+    }
+
+    /* Button */
+    .btn {
+      width: 100%;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn:hover  { background: var(--accent-hover); }
+    .btn:active { background: var(--accent-active); transform: scale(0.99); }
+
+    /* Footer */
+    .footer {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-hint {
+      font-size: 0.72rem;
+      color: var(--sand);
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.08em;
+    }
+    .footer-lock {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.7rem;
+      color: var(--sand);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="card">
+
+      <div class="badge">
+        <div class="badge-dot"></div>
+        Sistema Activo
+      </div>
+
+      <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="CASTOR Elecciones" />
+      </div>
+
+      <div class="divider"></div>
+
+      <h1>Control Electoral</h1>
+      <p class="subtitle">Ingresa tu cédula y código de acceso para entrar al centro de operaciones electorales.</p>
+
+      {% if error %}
+      <div class="error-msg">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+          <circle cx="7.5" cy="7.5" r="6.5" stroke="#8F4A4A" stroke-width="1.3"/>
+          <path d="M7.5 4.5v4M7.5 10.5v.5" stroke="#8F4A4A" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        {{ error }}
+      </div>
+      {% endif %}
+
+      <form method="POST" action="{{ url_for('electoral_auth.login') }}" autocomplete="off">
+        <label for="cedula">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 2.2h8M2 4.8h8M2 7.4h5.6" stroke="#777777" stroke-width="1.2" stroke-linecap="round"/>
+            <rect x="1" y="1" width="10" height="10" rx="1.8" stroke="#777777" stroke-width="1.1"/>
+          </svg>
+          Cédula
+        </label>
+        <div class="input-wrap">
+          <input
+            type="text"
+            id="cedula"
+            name="cedula"
+            maxlength="20"
+            placeholder="Número de cédula"
+            pattern="[0-9]{6,20}"
+            required
+            autofocus
+            spellcheck="false"
+            autocomplete="off"
+            style="letter-spacing: 0.04em; font-family: var(--font-body); text-transform: none;"
+          />
+        </div>
+
+        <label for="code">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <rect x="1" y="5" width="10" height="6" rx="1.5" stroke="#777777" stroke-width="1.2"/>
+            <path d="M3.5 5V3.5a2.5 2.5 0 015 0V5" stroke="#777777" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          Código de acceso
+        </label>
+        <div class="input-wrap">
+          <input
+            type="text"
+            id="code"
+            name="code"
+            maxlength="19"
+            placeholder="XXXX-XXXX-XXXX-XXXX"
+            pattern="[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}"
+            required
+            spellcheck="false"
+            autocomplete="off"
+          />
+        </div>
+        <button type="submit" class="btn">Acceder al Control Electoral</button>
+      </form>
+
+      <div class="footer">
+        <div class="footer-hint">XXXX-XXXX-XXXX-XXXX</div>
+        <div class="footer-lock">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+            <rect x="1" y="5" width="9" height="5.5" rx="1.5" stroke="#BFB8AE" stroke-width="1.1"/>
+            <path d="M3 5V3.5a2.5 2.5 0 015 0V5" stroke="#BFB8AE" stroke-width="1.1" stroke-linecap="round"/>
+          </svg>
+          Acceso cifrado
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const cedula = document.getElementById('cedula');
+      const input = document.getElementById('code');
+
+      cedula.addEventListener('input', function (e) {
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+      });
+
+      input.addEventListener('input', function (e) {
+        let val = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+        let formatted = '';
+        for (let i = 0; i < val.length && i < 16; i++) {
+          if (i > 0 && i % 4 === 0) formatted += '-';
+          formatted += val[i];
+        }
+        e.target.value = formatted;
+      });
+
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Backspace') {
+          const val = e.target.value;
+          if (val.endsWith('-')) {
+            e.preventDefault();
+            e.target.value = val.slice(0, -1);
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
