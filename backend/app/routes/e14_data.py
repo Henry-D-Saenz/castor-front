@@ -573,17 +573,33 @@ def get_form_detail(form_id: int):
 @e14_data_bp.route('/form-by-mesa/<path:mesa_id>', methods=['GET'])
 def get_form_by_mesa(mesa_id: str):
     """Get form detail by mesa_id string (e.g. '01-001-02-003-026')."""
+    mesa_id = str(mesa_id or "").strip()
+    if not mesa_id:
+        return jsonify({'error': 'mesa_id is required'}), 400
+
     if e14_sql_reader.is_sql_mode():
-        form = e14_sql_reader.get_form_by_mesa_id(mesa_id)
+        form = e14_sql_reader.get_form_by_identifier(mesa_id)
         if not form:
-            return jsonify({'error': 'Form not found for mesa_id'}), 404
+            return jsonify({'error': 'Form not found for mesa identifier'}), 404
         form['pmsn_alerts'] = _enrich_pmsn_alerts(form)
         return jsonify(form)
 
     store = get_e14_json_store()
     form = store.get_form_by_mesa_id(mesa_id)
     if not form:
-        return jsonify({'error': 'Form not found for mesa_id'}), 404
+        # Fallback for document/extraction identifiers.
+        store._ensure_loaded()
+        for f in store._forms:
+            extraction_id = str(f.get('extraction_id') or '').strip()
+            document_id = str(f.get('document_id') or '').strip()
+            if mesa_id in (extraction_id, document_id):
+                form = store.get_form_detail(int(f['id'])) if f.get('id') else f
+                break
+            if extraction_id.startswith(mesa_id) or document_id.startswith(mesa_id):
+                form = store.get_form_detail(int(f['id'])) if f.get('id') else f
+                break
+    if not form:
+        return jsonify({'error': 'Form not found for mesa identifier'}), 404
     form['pmsn_alerts'] = _enrich_pmsn_alerts(form)
     return jsonify(form)
 
