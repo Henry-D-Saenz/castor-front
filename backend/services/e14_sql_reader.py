@@ -341,13 +341,40 @@ def get_form_by_identifier(identifier: str) -> Optional[Dict[str, Any]]:
             WHERE mesa_id = ?
                OR document_id = ?
                OR document_id LIKE ?
+               OR JSON_VALUE(result_json, '$.extraction_id') = ?
+               OR JSON_VALUE(result_json, '$.extraction_id') LIKE ?
+               OR JSON_VALUE(result_json, '$.document_id') = ?
+               OR JSON_VALUE(result_json, '$.document_id') LIKE ?
+               OR JSON_VALUE(result_json, '$.metadata.document_id') = ?
+               OR JSON_VALUE(result_json, '$.metadata.document_id') LIKE ?
+               OR JSON_VALUE(result_json, '$.meta.document_id') = ?
+               OR JSON_VALUE(result_json, '$.meta.document_id') LIKE ?
             ORDER BY synced_at DESC, document_id ASC
             """,
             ident,
             ident,
             f"{ident}%",
+            ident,
+            f"{ident}%",
+            ident,
+            f"{ident}%",
+            ident,
+            f"{ident}%",
+            ident,
+            f"{ident}%",
         )
         row = cur.fetchone()
+        if not row:
+            cur.execute(
+                """
+                SELECT TOP 1 result_json
+                FROM dbo.e14_results_cache
+                WHERE result_json LIKE ?
+                ORDER BY synced_at DESC, document_id ASC
+                """,
+                f"%{ident}%",
+            )
+            row = cur.fetchone()
     if not row:
         return None
     try:
