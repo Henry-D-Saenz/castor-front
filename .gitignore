@@ -118,3 +118,5 @@ tokens_mesas_congreso.json
 actas_e14_masivo/*.json
 e14_scraper/*.json
 backend/data/e14/
+!backend/data/e14/
+!backend/data/e14/document_ids.log
