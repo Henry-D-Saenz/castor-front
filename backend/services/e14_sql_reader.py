@@ -331,6 +331,7 @@ def get_form_by_identifier(identifier: str) -> Optional[Dict[str, Any]]:
     ident = str(identifier or "").strip()
     if not ident:
         return None
+    ident_flat = ident.replace("-", "")
 
     with _connect() as conn:
         cur = conn.cursor()
@@ -349,6 +350,16 @@ def get_form_by_identifier(identifier: str) -> Optional[Dict[str, Any]]:
                OR JSON_VALUE(result_json, '$.metadata.document_id') LIKE ?
                OR JSON_VALUE(result_json, '$.meta.document_id') = ?
                OR JSON_VALUE(result_json, '$.meta.document_id') LIKE ?
+               OR REPLACE(COALESCE(document_id, ''), '-', '') = ?
+               OR REPLACE(COALESCE(document_id, ''), '-', '') LIKE ?
+               OR REPLACE(COALESCE(JSON_VALUE(result_json, '$.extraction_id'), ''), '-', '') = ?
+               OR REPLACE(COALESCE(JSON_VALUE(result_json, '$.extraction_id'), ''), '-', '') LIKE ?
+               OR REPLACE(COALESCE(JSON_VALUE(result_json, '$.document_id'), ''), '-', '') = ?
+               OR REPLACE(COALESCE(JSON_VALUE(result_json, '$.document_id'), ''), '-', '') LIKE ?
+               OR REPLACE(COALESCE(JSON_VALUE(result_json, '$.metadata.document_id'), ''), '-', '') = ?
+               OR REPLACE(COALESCE(JSON_VALUE(result_json, '$.metadata.document_id'), ''), '-', '') LIKE ?
+               OR REPLACE(COALESCE(JSON_VALUE(result_json, '$.meta.document_id'), ''), '-', '') = ?
+               OR REPLACE(COALESCE(JSON_VALUE(result_json, '$.meta.document_id'), ''), '-', '') LIKE ?
             ORDER BY synced_at DESC, document_id ASC
             """,
             ident,
@@ -362,6 +373,16 @@ def get_form_by_identifier(identifier: str) -> Optional[Dict[str, Any]]:
             f"{ident}%",
             ident,
             f"{ident}%",
+            ident_flat,
+            f"{ident_flat}%",
+            ident_flat,
+            f"{ident_flat}%",
+            ident_flat,
+            f"{ident_flat}%",
+            ident_flat,
+            f"{ident_flat}%",
+            ident_flat,
+            f"{ident_flat}%",
         )
         row = cur.fetchone()
         if not row:
@@ -370,9 +391,11 @@ def get_form_by_identifier(identifier: str) -> Optional[Dict[str, Any]]:
                 SELECT TOP 1 result_json
                 FROM dbo.e14_results_cache
                 WHERE result_json LIKE ?
+                   OR REPLACE(result_json, '-', '') LIKE ?
                 ORDER BY synced_at DESC, document_id ASC
                 """,
                 f"%{ident}%",
+                f"%{ident_flat}%",
             )
             row = cur.fetchone()
     if not row:

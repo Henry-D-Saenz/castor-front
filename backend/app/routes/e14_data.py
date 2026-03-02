@@ -589,13 +589,23 @@ def get_form_by_mesa(mesa_id: str):
     if not form:
         # Fallback for document/extraction identifiers.
         store._ensure_loaded()
+        mesa_id_flat = mesa_id.replace('-', '')
         for f in store._forms:
             extraction_id = str(f.get('extraction_id') or '').strip()
             document_id = str(f.get('document_id') or '').strip()
+            extraction_id_flat = extraction_id.replace('-', '')
+            document_id_flat = document_id.replace('-', '')
             if mesa_id in (extraction_id, document_id):
                 form = store.get_form_detail(int(f['id'])) if f.get('id') else f
                 break
             if extraction_id.startswith(mesa_id) or document_id.startswith(mesa_id):
+                form = store.get_form_detail(int(f['id'])) if f.get('id') else f
+                break
+            if mesa_id_flat and (
+                mesa_id_flat in (extraction_id_flat, document_id_flat)
+                or extraction_id_flat.startswith(mesa_id_flat)
+                or document_id_flat.startswith(mesa_id_flat)
+            ):
                 form = store.get_form_detail(int(f['id'])) if f.get('id') else f
                 break
     if not form:

@@ -439,13 +439,23 @@ def get_mesa_detail(mesa_id: str):
 
         # Fallback: allow document/extraction identifiers (exact or prefix).
         if not form:
+            mesa_id_flat = mesa_id.replace('-', '')
             for f in store._forms:
                 extraction_id = str(f.get('extraction_id') or "").strip()
                 document_id = str(f.get('document_id') or "").strip()
+                extraction_id_flat = extraction_id.replace('-', '')
+                document_id_flat = document_id.replace('-', '')
                 if mesa_id in (extraction_id, document_id):
                     form = f
                     break
                 if extraction_id.startswith(mesa_id) or document_id.startswith(mesa_id):
+                    form = f
+                    break
+                if mesa_id_flat and (
+                    mesa_id_flat in (extraction_id_flat, document_id_flat)
+                    or extraction_id_flat.startswith(mesa_id_flat)
+                    or document_id_flat.startswith(mesa_id_flat)
+                ):
                     form = f
                     break
 
